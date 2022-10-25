@@ -9,11 +9,12 @@ from sqlalchemy import event
 from sqlalchemy.engine import Engine
 
 
-application = Flask(__name__)
+app = Flask(__name__)
 
 # database configuration
-application.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///sqlitedb.file"
-application.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = 0
+
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///sqlitedb.file"
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = 0
 
 
 # Allowing to configure sqlite3 to enforce foreign key constraints
@@ -27,9 +28,12 @@ def _set_sqlite_pragma(dbapi_connection, connection_record):
 # creating instance of the database by passing app into SQLAlchemy class
 # This class is used to control the SQL alchemy integration to one or more flask applications
 # connecting ORM with flask application
-db = SQLAlchemy(application)
+db = SQLAlchemy(app)
 # this is used to update date values while updating tables
 current_time = datetime.now()
+
+# orm tool translates python classes to tables on relational databases and 
+# automatically converts function calls to SQL statements
 
 # class User represents a table in the database
 class User(db.Model):
@@ -51,3 +55,48 @@ class BlogPost(db.Model):
     date = db.Column(db.Date)
     # this is a foreign key with another table "User"
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+
+# in order to create a function that corresponds to a route, app.route decorator is used
+@app.route("/user", methods=["POST"])
+def create_new_user():
+    pass
+
+
+@app.route("/user/descending_id", methods=["GET"])
+def get_all_users_descending():
+    pass
+
+
+@app.route("/user/ascending_id", methods=["GET"])
+def get_all_users_ascending():
+    pass
+
+
+@app.route("/user/<user_id>", methods=["GET"])
+def get_one_user(user_id):
+    pass
+
+
+@app.route("/user/<user_id>", methods=["DELETE"])
+def delete_user(user_id):
+    pass
+
+
+@app.route("/blog_post/<user_id>", methods=["POST"])
+def create_blog_post(user_id):
+    pass
+
+@app.route("/blog_post/<blog_post_id>", methods=["GET"])
+def get_one_blog_post(blog_post_id):
+    pass
+
+@app.route("/blog_post/numeric_body", methods=["GET"])
+def get_numeric_post_bodies():
+    pass
+
+@app.route("/blog_post/delete_last_10", methods=["DELETE"])
+def delete_last_10():
+    pass
+
+if __name__ == "__main__":
+    app.run(debug=True)
