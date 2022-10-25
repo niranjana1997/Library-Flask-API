@@ -32,13 +32,13 @@ class HashTable:
         hashed_index = self.hash_function(key)
         # checks if a value is present in the hashTable at index hashed_index
         # if no value is present
-        if self.hashTable[hashed_key] is None:
+        if self.hashTable[hashed_index] is None:
             # a new node is created as dict(Data object) and value is set as None
-            self.hashTable[hashed_key] = Node(Data(key, value), None)
+            self.hashTable[hashed_index] = Node(Data(key, value), None)
         # if value is present at hashed_index
         else:
             # iterates through the the linked list in value till it reaches the end
-            node = self.hash_table[hashed_key]
+            node = self.hashTable[hashed_index]
             while node.next:
                 node = node.next
             # a new node is created as dict(Data object) and value is set as None
@@ -51,8 +51,8 @@ class HashTable:
         hashed_index = self.hash_function(key)
         # checks if a value is present in the hashTable at index hashed_index
         # if value is present
-        if self.hash_table[hashed_key] is not None:
-            node = self.hash_table[hashed_key]
+        if self.hashTable[hashed_index] is not None:
+            node = self.hashTable[hashed_index]
             # if only one value is present
             if node.next is None:
                 # returns the value

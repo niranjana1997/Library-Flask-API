@@ -95,14 +95,9 @@ def add_new_blog(input_user_id):
         date = hashTable.get_value_by_key("date"),
         user_id = hashTable.get_value_by_key("user_id"),
     )
-    new_blog = BlogPost(
-        title=data["title"],
-        body=data["body"],
-        date=current_time,
-        user_id=data["input_user_id"],
-    )
+
     # adds new user to the db
-    db.session.add(new_blog)
+    db.session.add(new_blog_post)
     db.session.commit()
     # returns a success message
     return jsonify({"message": "New Blog Added to the Database"}), 200
