@@ -7,10 +7,11 @@ Data Structures Used: Linked List, Binary Search Tree, Stack, Queue, Hash Table
 
 1. DB Browser for SQLite: Allows the users to view the database via a graphical user interface. It is used to create, design, and edit database files compatible with SQLite. 
 2. Postman: An API platform for building and using APIs.
-3. Flask: Micro web framework for creating APIs in Python.
+3. Flask: Micro web framework for creating APIs in Python. It is a middleware that is between the python application and the server.
 4. SQLite3: file-based SQL database used to integrate the SQLite database with Python.
 5. SQLAlchemy: Facilitates the communication between Python programs and databases.
 6. Flask-SQLAlchemy: Flask extension that makes using SQLAlchemy with Flask easier, providing you tools and methods to interact with your database in your Flask applications through SQLAlchemy.
+7. Object-Relational Mapping (ORM): Technique that lets you query and manipulate data from a database using an object-oriented paradigm.
 
 ## Installation
 1. A virtual environment "venv" is created by the following command:
@@ -18,7 +19,6 @@ Data Structures Used: Linked List, Binary Search Tree, Stack, Queue, Hash Table
 2. The virtual environment is activated by the command (macOS):
 >. venv/bin/activate
 3. To install Flask:<br/>
-   Flask is a framework used for building complex web applications. It is a middleware that is between the python application and the server.
 >pip install flask
 4. To install flask_sqlalchemy:
 >pip install flask_sqlalchemy
@@ -32,7 +32,7 @@ Data Structures Used: Linked List, Binary Search Tree, Stack, Queue, Hash Table
 > db.create_all()
 > exit()
 
-Object-Relational Mapping (ORM) is a technique that lets you query and manipulate data from a database using an object-oriented paradigm.
+
 
 ## Output of the application
 
