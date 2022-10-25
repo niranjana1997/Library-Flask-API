@@ -1,8 +1,7 @@
 # Flask API
 
 ## Installation
-SQLAlchemy is a library that facilitates the communication between Python programs and databases.
-
+SQLAlchemy is a library that facilitates the communication between Python programs and databases.<br/>
 Flask-SQLAlchemy is a Flask extension that makes using SQLAlchemy with Flask easier, providing you tools and methods to interact with your database in your Flask applications through SQLAlchemy.
 
 Python SQLite3 module is used to integrate the SQLite database with Python.
