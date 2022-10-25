@@ -14,7 +14,6 @@ Python SQLite3 module is used to integrate the SQLite database with Python.
 * . venv/bin/activate
 3. To install Flask:<br/>
    Flask is a framework used for building complex web applications. It is a middleware that is between the python application and the server.
-  <br/> 
  * pip install flask
 4. To install flask_sqlalchemy:
 * pip install flask_sqlalchemy
