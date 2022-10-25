@@ -3,7 +3,7 @@ This repository contains backend files for a blog website built using Flask, SQL
 
 * Tools Used: DB Browser for SQLite, Postman, Visual Studio Code, Github Desktop
 * Libraries used: flask, sqlite3, flask_sqlalchemy, sqlalchemy
-Data Structures Used: Linked List, Binary Search Tree, Stack, Queue, Hash Table
+* Data Structures Used: Linked List, Binary Search Tree, Stack, Queue, Hash Table
 
 1. DB Browser for SQLite: Allows the users to view the database via a graphical user interface. It is used to create, design, and edit database files compatible with SQLite. 
 2. Postman: An API platform for building and using APIs.
