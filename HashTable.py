@@ -1,8 +1,4 @@
-# Node class has variables data and next
-class Node:
-    def __init__(self, data = None, next = None):
-        self.data = data
-        self.next = next
+import Node as nd
 
 # Data class helps maintain the values as key,value (dict)
 class Data:
@@ -34,7 +30,7 @@ class HashTable:
         # if no value is present
         if self.hashTable[hashed_index] is None:
             # a new node is created as dict(Data object) and value is set as None
-            self.hashTable[hashed_index] = Node(Data(key, value), None)
+            self.hashTable[hashed_index] = nd.Node(Data(key, value), None)
         # if value is present at hashed_index
         else:
             # iterates through the the linked list in value till it reaches the end
@@ -43,7 +39,7 @@ class HashTable:
                 node = node.next
             # a new node is created as dict(Data object) and value is set as None
             # this node is added to the end
-            node.next = Node(Data(key, value), None)
+            node.next = nd.Node(Data(key, value), None)
 
     # get value by passing key
     def get_value_by_key(self, key):

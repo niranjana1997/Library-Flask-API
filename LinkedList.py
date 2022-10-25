@@ -1,8 +1,4 @@
-# Node class has variables data and next
-class Node:
-    def __init__(self, data = None, next = None):
-        self.data = data
-        self.next = next
+import Node as nd
 
 class LinkedList:
     # Linked List class has variables head and tail
@@ -15,11 +11,11 @@ class LinkedList:
          # if the linked list is empty, data is added at the beginning and 
          # tail is also pointed to that node
         if self.head is None:
-            self.head = Node(data, None)
+            self.head = nd.Node(data, None)
             self.tail = self.head
             return
         # new node is created and it's next is set to head
-        new_node = Node(data, self.head)
+        new_node = nd.Node(data, self.head)
         # head is set to the new node, thereby adding the data at the beginning
         self.head = new_node
 
@@ -30,7 +26,7 @@ class LinkedList:
             self.beginning_insert(data)
             return
         # data is added at the end and tail's next value is set to None
-        self.tail.next = Node(data, None)
+        self.tail.next = nd.Node(data, None)
         self.tail = self.tail.next
 
     # takes in user_id, iterates through the linked list and returns the user node

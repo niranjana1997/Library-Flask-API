@@ -1,9 +1,4 @@
-# Node class has variables data, left and right
-class Node:
-    def __init__(self, data=None):
-        self.data = data
-        self.left = None
-        self.right = None
+import BinarySearchNode as bsn
 
 # BinarySearchTree class has variable root
 class BinarySearchTree:
@@ -16,7 +11,7 @@ class BinarySearchTree:
         if data["id"] < node.data["id"]:
             # if the left node is empty, the new value is inserted there
             if not node.left:
-                node.left = Node(data)
+                node.left = bsn.Node(data)
             # else, insert_helper method is called recursively by passing the left node
             else:
                 self.insert_helper(data, node.left)
@@ -24,7 +19,7 @@ class BinarySearchTree:
         elif data["id"] > node.data["id"]:
             # if the right node is empty, the new value is inserted there
             if not node.right:
-                node.right = Node(data)
+                node.right = bsn.Node(data)
             # else, insert_helper method is called recursively by passing the right node
             else:
                 self.insert_helper(data, node.right)
@@ -38,7 +33,7 @@ class BinarySearchTree:
         # checks if the root is None
         # if it is, value is added to root
         if not self.root:
-            self.root = Node(data)
+            self.root = bsn.Node(data)
         # else, insert_helper function is called
         else:
             self.insert_helper(data, self.root)
