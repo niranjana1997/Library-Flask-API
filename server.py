@@ -7,7 +7,7 @@ from flask_sqlalchemy import SQLAlchemy
 # SQLAlchemy is a library that facilitates the communication between Python programs and databases.
 from sqlalchemy import event
 from sqlalchemy.engine import Engine
-
+import LinkedList as ll
 
 app = Flask(__name__)
 
@@ -71,10 +71,24 @@ def create_new_user():
     db.session.commit()
     return jsonify({"message": "New User Added to the Database"}), 200
 
-
+# displays user in descending order of adding
 @app.route("/user/user_descending_order", methods=["GET"])
 def get_users_descending_order():
-    pass
+    all_users = User.query.all()
+    ll_all_users = ll.LinkedList()
+
+    for eachUser in all_users:
+        ll_all_users.beginning_insert(
+            {
+                "id": eachUser.id,
+                "name": eachUser.name,
+                "email": eachUser.email,
+                "address": eachUser.address,
+                "phone": eachUser.phone,
+            }
+        )
+
+    return jsonify(ll_all_users.convert_ll_to_list()), 200
 
 
 @app.route("/user/ascending_id", methods=["GET"])
