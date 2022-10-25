@@ -8,7 +8,7 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import event
 from sqlalchemy.engine import Engine
 import LinkedList as ll
-
+import HashTable as ht
 app = Flask(__name__)
 
 # database configuration
@@ -75,15 +75,31 @@ def create_new_user():
     return jsonify({"message": "New User Added to the Database"}), 200
 
 # blogs are added
-@app.route("/add_blog", methods=["POST"])
-def add_new_blog():
+@app.route("/add_blog/<input_user_id>", methods=["POST"])
+def add_new_blog(input_user_id):
     # requests will store the values as dict in data variable
     data = request.get_json()
+    check_user = User.query.filter_by(id=input_user_id).first()
+    if not check_user:
+        return jsonify({"message": "User does not exist"}), 400
+    hashTable = ht.HashTable(10)
+
+    hashTable.add_key_value_to_hash_table("title", data["title"])
+    hashTable.add_key_value_to_hash_table("body", data["body"])
+    hashTable.add_key_value_to_hash_table("date", current_time)
+    hashTable.add_key_value_to_hash_table("user_id", input_user_id)
+
+    new_blog_post = BlogPost(
+        title = hashTable.get_value_by_key("title"),
+        body = hashTable.get_value_by_key("body"),
+        date = hashTable.get_value_by_key("date"),
+        user_id = hashTable.get_value_by_key("user_id"),
+    )
     new_blog = BlogPost(
         title=data["title"],
         body=data["body"],
         date=current_time,
-        user_id=data["user_id"],
+        user_id=data["input_user_id"],
     )
     # adds new user to the db
     db.session.add(new_blog)
@@ -165,10 +181,6 @@ def delete_user_id(input_user_id):
     db.session.commit()
     return jsonify({"message": "User ID (" + str(input_user_id) + ") with Name (" + user.name + ") deleted successfully"}), 200
 
-
-@app.route("/blog_post/<user_id>", methods=["POST"])
-def create_blog_post(user_id):
-    pass
 
 @app.route("/blog_post/<blog_post_id>", methods=["GET"])
 def get_one_blog_post(blog_post_id):
