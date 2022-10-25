@@ -44,6 +44,7 @@ class User(db.Model):
     address = db.Column(db.String(200))
     phone = db.Column(db.String(50))
     # this is a foreign key with another table "BlogPost"
+    # cascade = "all, delete" will reflect delete changes in BlogPost table too
     posts = db.relationship("BlogPost", cascade="all, delete")
 
 # class BlogPost represents a table in the database
@@ -67,16 +68,38 @@ def create_new_user():
         address=data["address"],
         phone=data["phone"],
     )
+    # adds new user to the db
     db.session.add(new_user)
     db.session.commit()
+    # returns a success message
     return jsonify({"message": "New User Added to the Database"}), 200
+
+# blogs are added
+@app.route("/add_blog", methods=["POST"])
+def add_new_blog():
+    # requests will store the values as dict in data variable
+    data = request.get_json()
+    new_blog = BlogPost(
+        title=data["title"],
+        body=data["body"],
+        date=current_time,
+        user_id=data["user_id"],
+    )
+    # adds new user to the db
+    db.session.add(new_blog)
+    db.session.commit()
+    # returns a success message
+    return jsonify({"message": "New Blog Added to the Database"}), 200
+
 
 # displays user in descending order of adding
 @app.route("/user/user_descending_order", methods=["GET"])
 def get_users_descending_order():
+    # getting all users from db
     all_users = User.query.all()
+    # creates a linked list
     ll_all_users = ll.LinkedList()
-
+    # iterating each value in all_users and adding it to beginning of linked list 
     for eachUser in all_users:
         ll_all_users.beginning_insert(
             {
@@ -87,23 +110,60 @@ def get_users_descending_order():
                 "phone": eachUser.phone,
             }
         )
+    # returns the json by converting the linked list to list
+    return jsonify(ll_all_users.convert_ll_to_list()), 200
 
+# get users in ascending order
+@app.route("/user/user_ascending_order", methods=["GET"])
+def get_all_users_ascending():
+    # getting all users from db
+    all_users = User.query.all()
+    # creates a linked list
+    ll_all_users = ll.LinkedList()
+    # iterating each value in all_users and adding it to end of linked list 
+    for eachUser in all_users:
+        ll_all_users.end_insert(
+            {
+                "id": eachUser.id,
+                "name": eachUser.name,
+                "email": eachUser.email,
+                "address": eachUser.address,
+                "phone": eachUser.phone,
+            }
+        )
+    # returns the json by converting the linked list to list
     return jsonify(ll_all_users.convert_ll_to_list()), 200
 
 
-@app.route("/user/ascending_id", methods=["GET"])
-def get_all_users_ascending():
-    pass
+@app.route("/user/<input_user_id>", methods=["GET"])
+def get_one_user(input_user_id):
+    # getting all users from db
+    all_users = User.query.all()
+    # creates a linked list
+    ll_all_users = ll.LinkedList()
+    for eachUser in all_users:
+        ll_all_users.beginning_insert(
+            {
+                "id": eachUser.id,
+                "name": eachUser.name,
+                "email": eachUser.email,
+                "address": eachUser.address,
+                "phone": eachUser.phone,
+            }
+        )
+    output_details = ll_all_users.get_user_by_id(input_user_id)
+    return jsonify(output_details), 200
 
-
-@app.route("/user/<user_id>", methods=["GET"])
-def get_one_user(user_id):
-    pass
-
-
-@app.route("/user/<user_id>", methods=["DELETE"])
-def delete_user(user_id):
-    pass
+# query the database to delete the user
+@app.route("/user/<input_user_id>", methods=["DELETE"])
+def delete_user_id(input_user_id):
+    user = User.query.filter_by(id = input_user_id).first()
+    # when trying to delete a user that has a id in the blog post table, 
+    # and since a foreign key constraint is added to the user id column of the blog post table
+    # we need to cascade the deletion of user id in blog post table too
+    db.session.delete(user)
+    db.session.commit()
+    return jsonify({"message": "User ID (" + str(input_user_id) + ") with Name (" + user.name + ") deleted successfully"}), 200
 
 
 @app.route("/blog_post/<user_id>", methods=["POST"])
