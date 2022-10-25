@@ -18,7 +18,7 @@ Data Structures Used: Linked List, Binary Search Tree, Stack, Queue, Hash Table
 > python3 -m venv venv
 2. The virtual environment is activated by the command (macOS):
 >. venv/bin/activate
-3. To install Flask:<br/>
+3. To install Flask:
 >pip install flask
 4. To install flask_sqlalchemy:
 >pip install flask_sqlalchemy
@@ -26,11 +26,11 @@ Data Structures Used: Linked List, Binary Search Tree, Stack, Queue, Hash Table
 >pip install pysqlite3 
  
  In the command line, to generate the database
-> python
-> from server import db,app
-> app.app_context().push()
-> db.create_all()
-> exit()
+* python
+* from server import db,app
+* app.app_context().push()
+* db.create_all()
+* exit()
 
 
 
