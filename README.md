@@ -1,5 +1,5 @@
 # Flask API
-This repository contains backend API files for a blog website built using Flask, SQLite and Data Structures. 
+This repository contains backend files for a blog website built using Flask, SQLite, REST API and Data Structures. 
 
 * Tools Used: DB Browser for SQLite, Postman, Visual Studio Code, Github Desktop
 * Libraries used: flask, sqlite3, flask_sqlalchemy, sqlalchemy
