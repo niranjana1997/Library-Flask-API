@@ -11,7 +11,7 @@ import LinkedList as ll
 import HashTable as ht
 import BinarySearchTree as bst
 import random as rand
-
+import Queue as q
 app = Flask(__name__)
 
 # database configuration
@@ -208,11 +208,44 @@ def get_one_blog_post(blog_id):
     else:
         return jsonify(post)
 
-@app.route("/blog_post/numeric_body", methods=["GET"])
-def get_numeric_post_bodies():
-    pass
+# finds the ascii total of body of the blogpost
+@app.route("/blog/numeric_body", methods=["GET"])
+def get_numeric_of_blog_body():
+    # getting all blog posts from db
+    all_posts = BlogPost.query.all()
+    # queue object is created
+    queue = q.Queue()
+    # iterating through each post in all_posts
+    for eachPost in all_posts:
+        # adding element (eachPost) to the queue
+        queue.enqueue(eachPost)
+    # output list is declared and initialized
+    output = []
+    # iterating through each element in all_posts
+    for i in range(len(all_posts)):
+        # dequeued element is set as popped_element
+        popped_element = q.dequeue()
+        # counter parameter is set and intialized
+        counter = 0
+        # iterating through each character in body
+        for character in popped_element.data.body:
+            # adding ascii value of the character to 
+            counter += ord(character)
+        # setting counter value as body
+        popped_element.data.body = counter
+        # returning details in json format
+        output.append(
+            {
+                "id": popped_element.data.id,
+                "title" : popped_element.data.title,
+                "body" : counter,
+                "user_id" : popped_element.data.user_id,
+            }
+        )
 
-@app.route("/blog_post/delete_last_10", methods=["DELETE"])
+    return jsonify(output)
+
+@app.route("/blog/delete_last_10", methods=["DELETE"])
 def delete_last_10():
     pass
 
