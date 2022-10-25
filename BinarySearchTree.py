@@ -43,22 +43,47 @@ class BinarySearchTree:
         else:
             self.insert_helper(data, self.root)
 
+    # # helper function for search
+    # def search_helper(self, input_id, node):
+    #     # if the input_id is equal to the node's value
+    #     if input_id == node.data["id"]:
+    #         # node value is returned
+    #         return node.data
+    #     # if input_id is less than node's value and if left node exists
+    #     if input_id < node.data["id"] and node.left is not None:
+    #         # the search helper method is called recursively with left node
+    #         return self.search_helper(input_id, node.left)
+    #     # if input_id is greater than node's value and if right node exists
+    #     if input_id > node.data["id"] and node.right is not None:
+    #         # the search helper method is called recursively with right node
+    #         return self.search_helper(input_id, node.right)
+    #     # False is returned if the above conditions are not met
+    #     return False
+
     # helper function for search
     def search_helper(self, input_id, node):
+        input_id = int(input_id)
+        # if the node has no left or right child
+        if node.left == None and node.right == None:
+            return False
         # if the input_id is equal to the node's value
         if input_id == node.data["id"]:
             # node value is returned
             return node.data
-        # if input_id is less than node's value and if left node exists
-        if input_id < node.data["id"] and node.left is not None:
+        # print(type(input_id))
+        # print(type(node.data["id"]))
+        # if input_id is less than node's value
+        if input_id < node.data["id"]:
+            if input_id == node.left.data["id"]:
+                return node.left.data
             # the search helper method is called recursively with left node
             return self.search_helper(input_id, node.left)
-        # if input_id is greater than node's value and if right node exists
-        if input_id > node.data["id"] and node.right is not None:
+        # if input_id is greater than node's value 
+        if input_id > node.data["id"]:
+            if input_id == node.right.data["id"]:
+                return node.right.data
             # the search helper method is called recursively with right node
             return self.search_helper(input_id, node.right)
-        # False is returned if the above conditions are not met
-        return False
 
     # method to insert data
     def search(self, input_id):
