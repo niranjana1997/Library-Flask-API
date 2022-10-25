@@ -12,6 +12,8 @@ import HashTable as ht
 import BinarySearchTree as bst
 import random as rand
 import Queue as q
+import Stack as s
+
 app = Flask(__name__)
 
 # database configuration
@@ -224,15 +226,13 @@ def get_numeric_of_blog_body():
     # iterating through each element in all_posts
     for i in range(len(all_posts)):
         # dequeued element is set as popped_element
-        popped_element = q.dequeue()
+        popped_element = queue.dequeue()
         # counter parameter is set and intialized
         counter = 0
         # iterating through each character in body
         for character in popped_element.data.body:
             # adding ascii value of the character to 
             counter += ord(character)
-        # setting counter value as body
-        popped_element.data.body = counter
         # returning details in json format
         output.append(
             {
@@ -242,12 +242,31 @@ def get_numeric_of_blog_body():
                 "user_id" : popped_element.data.user_id,
             }
         )
-
     return jsonify(output)
 
-@app.route("/blog/delete_last_10", methods=["DELETE"])
-def delete_last_10():
-    pass
+@app.route("/blog/delete_last_5", methods=["DELETE"])
+def delete_last_5():
+    # getting all blog posts from db
+    all_posts = BlogPost.query.all()
+    # creating the stack object
+    stack = s.Stack()
+    # itertaing through all_posts and adding each post to stack
+    for eachPost in all_posts:
+        stack.push(eachPost)
+    # iterating 5 times to remove 5 elements
+    for i in range(5):
+        # top element is popped and removed from db
+        popped_element = stack.pop()
+        if popped_element is None:
+            if i == 0:
+                return jsonify({"message" : "Database is empty"})
+            else:
+                return jsonify({"message" : "Database is empty. Few elements were removed"})
+
+        db.session.delete(popped_element.data)
+        db.session.commit()
+    # success message is returned
+    return jsonify({"message" : "All Elements deleted successfully"})
 
 if __name__ == "__main__":
     app.run(debug=True)
