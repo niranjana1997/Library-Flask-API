@@ -28,3 +28,4 @@ Python SQLite3 module is used to integrate the SQLite database with Python.
 5. To install sqlite3:
 <br/>
    pip install pysqlite3 
+ 
