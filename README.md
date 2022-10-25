@@ -31,6 +31,7 @@ SQLite DB Browser is an open-source visual tool used to create, design, and edit
 Object-Relational Mapping (ORM) is a technique that lets you query and manipulate data from a database using an object-oriented paradigm.
 
 ## Output of the application
+
 1. User Table Values:
 <img width="390" alt="image" src="https://user-images.githubusercontent.com/89472841/197842836-53f40183-2d70-489e-a11c-7e8514ad08bd.png">
 2. Blog Post Table values:
