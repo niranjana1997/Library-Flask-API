@@ -1,16 +1,20 @@
 # Flask API
-To view schema and tables, Sqlite3 DB Browser will allow users to view the database via a graphical user interface. 
-## Installation
-SQLAlchemy is a library that facilitates the communication between Python programs and databases.
-<br/>
-Flask-SQLAlchemy is a Flask extension that makes using SQLAlchemy with Flask easier, providing you tools and methods to interact with your database in your Flask applications through SQLAlchemy.
-<br/>
-Python SQLite3 module is used to integrate the SQLite database with Python.
-<br/>
-SQLite DB Browser is an open-source visual tool used to create, design, and edit database files compatible with SQLite. 
+This repository contains backend API files for a blog website built using Flask, SQLite and Data Structures. 
 
+Tools Used: DB Browser for SQLite, Postman, Visual Studio Code, Github Desktop
+Libraries used: flask, sqlite3, flask_sqlalchemy, sqlalchemy
+Data Structures Used: Linked List, Binary Search Tree, Stack, Queue, Hash Table
+
+1. DB Browser for SQLite: Allows the users to view the database via a graphical user interface. It is used to create, design, and edit database files compatible with SQLite. 
+2. Postman: An API platform for building and using APIs.
+3. Flask: Micro web framework for creating APIs in Python.
+4. SQLite3: file-based SQL database used to integrate the SQLite database with Python.
+5. SQLAlchemy: Facilitates the communication between Python programs and databases.
+6. Flask-SQLAlchemy: Flask extension that makes using SQLAlchemy with Flask easier, providing you tools and methods to interact with your database in your Flask applications through SQLAlchemy.
+
+## Installation
 1. A virtual environment "venv" is created by the following command:
->>> python3 -m venv venv
+>> python3 -m venv venv
 2. The virtual environment is activated by the command (macOS):
 >>>. venv/bin/activate
 3. To install Flask:<br/>
