@@ -36,7 +36,9 @@ Object-Relational Mapping (ORM) is a technique that lets you query and manipulat
 <img width="390" alt="image" src="https://user-images.githubusercontent.com/89472841/197842836-53f40183-2d70-489e-a11c-7e8514ad08bd.png">
 2. Blog Post Table values:
 <img width="704" alt="image" src="https://user-images.githubusercontent.com/89472841/197843007-ad50128a-a8bb-47c4-8942-8da77eef5e13.png">
+
 ### Output of REST API functions:
+
 1. POST - Create User
 User: {
     "name":"Barack Obama",
