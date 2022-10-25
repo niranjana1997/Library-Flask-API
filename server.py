@@ -59,11 +59,21 @@ class BlogPost(db.Model):
 # in order to create a function that corresponds to a route, app.route decorator is used
 @app.route("/user", methods=["POST"])
 def create_new_user():
-    pass
+    # requests will store the values as dict in data variable
+    data = request.get_json()
+    new_user = User(
+        name=data["name"],
+        email=data["email"],
+        address=data["address"],
+        phone=data["phone"],
+    )
+    db.session.add(new_user)
+    db.session.commit()
+    return jsonify({"message": "New User Added to the Database"}), 200
 
 
-@app.route("/user/descending_id", methods=["GET"])
-def get_all_users_descending():
+@app.route("/user/user_descending_order", methods=["GET"])
+def get_users_descending_order():
     pass
 
 
