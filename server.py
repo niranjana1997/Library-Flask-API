@@ -9,6 +9,9 @@ from sqlalchemy import event
 from sqlalchemy.engine import Engine
 import LinkedList as ll
 import HashTable as ht
+import BinarySearchTree as bst
+import random as rand
+
 app = Flask(__name__)
 
 # database configuration
@@ -75,7 +78,7 @@ def create_new_user():
     return jsonify({"message": "New User Added to the Database"}), 200
 
 # blogs are added
-@app.route("/add_blog/<input_user_id>", methods=["POST"])
+@app.route("/blog/<input_user_id>", methods=["POST"])
 def add_new_blog(input_user_id):
     # requests will store the values as dict in data variable
     data = request.get_json()
@@ -177,9 +180,33 @@ def delete_user_id(input_user_id):
     return jsonify({"message": "User ID (" + str(input_user_id) + ") with Name (" + user.name + ") deleted successfully"}), 200
 
 
-@app.route("/blog_post/<blog_post_id>", methods=["GET"])
-def get_one_blog_post(blog_post_id):
-    pass
+@app.route("/blog/<blog_id>", methods=["GET"])
+def get_one_blog_post(blog_id):
+    # query all blog posts by query.all()
+    all_blogs = BlogPost.query.all()
+    # in order to avoid inserting into binary node in ascending order, it is shuffled
+    rand.shuffle(all_blogs)
+
+    # binary search tree is used to insert all_blogs
+    # and search for 'blog_id and retrieve it
+    binary_search_tree = bst.BinarySearchTree()
+
+    # iterates through each blog in all_blogs and inserting each value
+    for eachBlog in all_blogs:
+        binary_search_tree.insert({
+            "id" : eachBlog.id,
+            "title" : eachBlog.title,
+            "body" : eachBlog.body,
+            "user_id" : eachBlog.user_id,
+        })
+    # search method is called to search for blog_id
+    post = binary_search_tree.search(blog_id)
+    # if post is not available, error message is sent
+    if not post:
+        return jsonify({"message": "Blog not found"})
+    # else, post message is sent
+    else:
+        return jsonify(post)
 
 @app.route("/blog_post/numeric_body", methods=["GET"])
 def get_numeric_post_bodies():
