@@ -56,4 +56,11 @@ User ID: 6
 5. DELETE - delete_user_id
 <img width="550" alt="image" src="https://user-images.githubusercontent.com/89472841/197844625-72400897-833d-493b-9f05-d1cf49e79bb3.png">
 <img width="433" alt="image" src="https://user-images.githubusercontent.com/89472841/197844698-60758ec6-516f-437d-94b0-093d04bf10c0.png">
+6. POST - Add Blog
+{
+    "title":"My Summer as a Software Engineering Intern at Pinterest Toronto!",
+    "body":"This summer, I had the incredible opportunity to intern at the one and only Pinterest from the new engineering hub in Toronto!",
+    "user_id":13
+}
+<img width="703" alt="image" src="https://user-images.githubusercontent.com/89472841/197846957-5b0e4954-39fd-4bac-858a-858b065dde22.png">
 
