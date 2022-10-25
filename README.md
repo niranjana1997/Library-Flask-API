@@ -1,8 +1,8 @@
 # Flask API
 This repository contains backend API files for a blog website built using Flask, SQLite and Data Structures. 
 
-Tools Used: DB Browser for SQLite, Postman, Visual Studio Code, Github Desktop
-Libraries used: flask, sqlite3, flask_sqlalchemy, sqlalchemy
+* Tools Used: DB Browser for SQLite, Postman, Visual Studio Code, Github Desktop
+* Libraries used: flask, sqlite3, flask_sqlalchemy, sqlalchemy
 Data Structures Used: Linked List, Binary Search Tree, Stack, Queue, Hash Table
 
 1. DB Browser for SQLite: Allows the users to view the database via a graphical user interface. It is used to create, design, and edit database files compatible with SQLite. 
@@ -14,23 +14,23 @@ Data Structures Used: Linked List, Binary Search Tree, Stack, Queue, Hash Table
 
 ## Installation
 1. A virtual environment "venv" is created by the following command:
->> python3 -m venv venv
+> python3 -m venv venv
 2. The virtual environment is activated by the command (macOS):
->>>. venv/bin/activate
+>. venv/bin/activate
 3. To install Flask:<br/>
    Flask is a framework used for building complex web applications. It is a middleware that is between the python application and the server.
->>>pip install flask
+>pip install flask
 4. To install flask_sqlalchemy:
->>>pip install flask_sqlalchemy
+>pip install flask_sqlalchemy
 5. To install sqlite3:
->>>pip install pysqlite3 
+>pip install pysqlite3 
  
  In the command line, to generate the database
->>> python
->>> from server import db,app
->>> app.app_context().push()
->>> db.create_all()
->>> exit()
+> python
+> from server import db,app
+> app.app_context().push()
+> db.create_all()
+> exit()
 
 Object-Relational Mapping (ORM) is a technique that lets you query and manipulate data from a database using an object-oriented paradigm.
 
