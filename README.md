@@ -6,7 +6,7 @@ SQLAlchemy is a library that facilitates the communication between Python progra
 Flask-SQLAlchemy is a Flask extension that makes using SQLAlchemy with Flask easier, providing you tools and methods to interact with your database in your Flask applications through SQLAlchemy.
 <br/>
 Python SQLite3 module is used to integrate the SQLite database with Python.
-<br/><br/>
+<br/>
 1. A virtual environment "venv" is created by the following command:
 <br/>
    python3 -m venv venv
