@@ -54,15 +54,15 @@ This repository contains Python backend files for a library website built using 
 
 <img width="323" alt="image" src="https://user-images.githubusercontent.com/89472841/197909928-b9ea4411-ca29-481e-a73a-19c7c1d0006d.png">
 
-2. GET - Get Authors in Descending Order
+2. GET - Get Authors in Descending Order (Data Structure Used: Linked List)
 
 <img width="280" alt="image" src="https://user-images.githubusercontent.com/89472841/197910031-59518a39-589e-455b-b3a4-6464e2dab186.png">
 
-3. GET - Get Authors in Ascending Order
+3. GET - Get Authors in Ascending Order (Data Structure Used: Linked List)
 
 <img width="293" alt="image" src="https://user-images.githubusercontent.com/89472841/197910178-b5e82e23-4c59-44a7-91a0-918d95f18ad4.png">
 
-4. GET - Get One Author by ID
+4. GET - Get One Author by ID (Data Structure Used: Linked List)
 
 User ID: 11
 
@@ -83,7 +83,7 @@ User ID: 22
 
 <img width="405" alt="image" src="https://user-images.githubusercontent.com/89472841/197911217-67c49d9a-b2f2-4a21-a95f-1c44cd3045f2.png">
 
-6. GET - Get One Book by ID
+6. GET - Get One Book by ID (Data Structure Used: Tree - Binary Search Tree Algorithm)
 
 Book ID: 1
 
@@ -109,7 +109,7 @@ Book ID: 10
 
 <img width="867" alt="image" src="https://user-images.githubusercontent.com/89472841/197913339-2d4cfc19-a207-49b4-9d18-48d2287db9e3.png">
 
-9. DELETE - Delete last 5 Books
+9. DELETE - Delete last 5 Books (Data Structure Used: Stack)
 
 Test Case 1: When 9 Books are present in the Database:
 
