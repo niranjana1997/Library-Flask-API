@@ -1,4 +1,4 @@
-# Blog Website Backend (Flask API)
+# Library Flask API 
 This repository contains Python backend files for a blog website built using Flask, SQLite, REST API and Data Structures. 
 
 * Tools Used: DB Browser for SQLite, Postman, Visual Studio Code, Github Desktop
