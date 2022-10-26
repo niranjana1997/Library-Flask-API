@@ -34,48 +34,54 @@ This repository contains Python backend files for a blog website built using Fla
 
 ## Output of the application
 
-1. User Table Values:
+1. Author Table Values:
 
-<img width="390" alt="image" src="https://user-images.githubusercontent.com/89472841/197842836-53f40183-2d70-489e-a11c-7e8514ad08bd.png">
-2. Blog Post Table values:
+<img width="307" alt="image" src="https://user-images.githubusercontent.com/89472841/197905583-1991c83c-419b-4ead-90b8-fbebf19a931d.png">
 
-<img width="704" alt="image" src="https://user-images.githubusercontent.com/89472841/197843007-ad50128a-a8bb-47c4-8942-8da77eef5e13.png">
+2. Book Table values:
+
+<img width="868" alt="image" src="https://user-images.githubusercontent.com/89472841/197909708-550a35bd-fd96-46ee-9130-3c3b91648370.png">
+
 
 ### Output of REST API functions:
 
-1. POST - Create User <br/>
-User: {
-    "name":"Barack Obama",
-    "email":"obamabarack@gmail.com",
-    "address":"Washington D.C",
-    "phone":"7777666688"
+1. POST - Create Author <br/>
+{
+    "fname":"Joanne",
+    "lname":"Rowling",
+    "country":"United Kingdom"
 }
 
-<img width="440" alt="image" src="https://user-images.githubusercontent.com/89472841/197843437-ee9b68da-67ed-43d6-88e6-2cc928e8004a.png">
+<img width="323" alt="image" src="https://user-images.githubusercontent.com/89472841/197909928-b9ea4411-ca29-481e-a73a-19c7c1d0006d.png">
 
-2. GET - get_users_descending_order
+2. GET - get_authors_descending_order
 
-<img width="322" alt="image" src="https://user-images.githubusercontent.com/89472841/197843705-38943bc1-cfc9-4bbc-9915-6c535ddedc22.png">
+<img width="280" alt="image" src="https://user-images.githubusercontent.com/89472841/197910031-59518a39-589e-455b-b3a4-6464e2dab186.png">
 
 3. GET - get_users_ascending_order
 
-<img width="291" alt="image" src="https://user-images.githubusercontent.com/89472841/197843864-a5a045c5-5855-4e76-b749-418fd4992e83.png">
+<img width="293" alt="image" src="https://user-images.githubusercontent.com/89472841/197910178-b5e82e23-4c59-44a7-91a0-918d95f18ad4.png">
 
 4. GET - get_one_user
 
-User ID: 1
+User ID: 11
 
-<img width="173" alt="image" src="https://user-images.githubusercontent.com/89472841/197844051-880eb961-825f-4939-8edc-18502d5d37d4.png">
+<img width="201" alt="image" src="https://user-images.githubusercontent.com/89472841/197910663-bd489db7-c890-4cf4-be31-36c26778de0f.png">
 
-User ID: 6
+User ID: 22
 
-<img width="250" alt="image" src="https://user-images.githubusercontent.com/89472841/197844173-a84abb78-c04d-4432-8fc1-2c1d36cbc33b.png">
+<img width="91" alt="image" src="https://user-images.githubusercontent.com/89472841/197910708-51882304-4463-4924-b266-f8c3e2a764f5.png">
 
-5. DELETE - delete_user_id
+5. DELETE - delete_author_id
 
-<img width="550" alt="image" src="https://user-images.githubusercontent.com/89472841/197844625-72400897-833d-493b-9f05-d1cf49e79bb3.png">
+User ID: 10
 
-<img width="433" alt="image" src="https://user-images.githubusercontent.com/89472841/197844698-60758ec6-516f-437d-94b0-093d04bf10c0.png">
+<img width="602" alt="image" src="https://user-images.githubusercontent.com/89472841/197911121-06b20fe7-015c-4c84-9c40-715d067afe85.png">
+<img width="313" alt="image" src="https://user-images.githubusercontent.com/89472841/197911158-dbe63d9b-ad99-451c-ad3e-9168de8bba82.png">
+
+User ID: 22
+
+<img width="405" alt="image" src="https://user-images.githubusercontent.com/89472841/197911217-67c49d9a-b2f2-4a21-a95f-1c44cd3045f2.png">
 
 6. POST - Add Blog
 
