@@ -31,7 +31,7 @@ class LinkedList:
 
     # takes in user_id, iterates through the linked list and returns the user node
     # if it matches the linked list
-    def get_user_by_id(self, user_id):
+    def get_author_by_id(self, user_id):
         node = self.head
         while node:
             if node.data["id"] is int(user_id):
